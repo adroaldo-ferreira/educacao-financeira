@@ -1,0 +1,12 @@
+<div class="container">
+    <form >
+    <h3>Calculadora de investimentos</h3>
+    <label for="valor">Valor</label><br>
+    <input type="number" id="valor" value="{{valor}}"><br>
+    <label for="cdi">CDI período</label><br>
+    <input type="number" id="cdi" value="{{cdi}}"><br>
+    <label for="taxa">Taxa</label><br>
+    <input type="number" id="taxa" value="{{taxa}}"><br>
+    <input type="button" value="Calcular" class="btn btn-primary" (click)="calcularValores()">
+</form>
+</div>
