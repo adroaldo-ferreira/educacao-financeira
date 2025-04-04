@@ -1,20 +1,29 @@
 import { Component } from '@angular/core';
+import { ResultadoInvestimento } from '../../../types/CustomTypes';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-investimento',
-  imports: [],
   templateUrl: './investimento.component.html',
-  styleUrl: './investimento.component.css'
+  styleUrls: ['./investimento.component.css'],
+  imports:[FormsModule]
 })
 
 export class InvestimentoComponent {
-  valor = 1000.0;
-  cdi = 1.92;
-  taxa = 95.0;
+  valor!: number;
+  cdi!: number;
+  taxa!: number;
+  resultado?: ResultadoInvestimento;
 
   calcularValores() {
     const lucro = this.valor * this.taxa * this.cdi / 10000.0;
-    const impostos = lucro * 0.225
+    const impostos = lucro * 0.225;
     const rendimento = lucro - impostos;
+
+    this.resultado = {
+      lucro,
+      impostos,
+      rendimento
+    };
   }
 }

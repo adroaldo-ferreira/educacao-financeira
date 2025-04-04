@@ -1,12 +1,20 @@
 <div class="container">
-    <form >
+  <form>
     <h3>Calculadora de investimentos</h3>
     <label for="valor">Valor</label><br>
-    <input type="number" id="valor" value="{{valor}}"><br>
+    <input type="number" id="valor" [(ngModel)]="valor" name="valor" required><br>
     <label for="cdi">CDI período</label><br>
-    <input type="number" id="cdi" value="{{cdi}}"><br>
+    <input type="number" id="cdi" [(ngModel)]="cdi" required name="cdi"><br>
     <label for="taxa">Taxa</label><br>
-    <input type="number" id="taxa" value="{{taxa}}"><br>
+    <input type="number" id="taxa" [(ngModel)]="taxa" required name="taxa"><br>
     <input type="button" value="Calcular" class="btn btn-primary" (click)="calcularValores()">
-</form>
+  </form>
+</div>
+
+<div class="container">
+  @if (resultado) {
+  <p>Lucro: R${{resultado.lucro.toFixed(2)}}</p>
+  <p>Impostos: R${{resultado.impostos.toFixed(2)}}</p>
+  <p>Rendimento: R${{resultado.rendimento.toFixed(2)}}</p>
+  }
 </div>
