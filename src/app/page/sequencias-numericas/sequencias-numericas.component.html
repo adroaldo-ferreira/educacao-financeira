@@ -1,0 +1,23 @@
+<div class="container">
+  <h3>Determinar a razão conhecendo dois elementos</h3>
+  <select id="opcao" name="opcao" [(ngModel)]="tipo">
+    <option value="pa">PA</option>
+    <option value="pg">PG</option>
+  </select><br>
+
+  <label for="valor-m">Primeiro valor</label><br>
+  <input type="number" name="valor-m" id="valor-m" [(ngModel)]="am" required><br>
+  <label forr="posicao-m">Posicao do primeiro valor</label><br>
+  <input type="number" name="posicao-m" id="posicao-m" [(ngModel)]="pm" required><br>
+
+  <label for="valor-n">Segundo valor</label><br>
+  <input type="number" name="valor-n" id="valor-n" [(ngModel)]="an" required><br>
+  <label forr="posicao-m">Posicao do segundo valor</label><br>
+  <input type="number" name="posicao-n" id="posicao-n" [(ngModel)]="pn" required><br>
+
+  <button type="submit" class="btn btn-primary" (click)="calcularElemento()">Calcular</button>
+
+  @if(razao){
+  <p>r = {{razao}}</p>
+  }
+</div>
