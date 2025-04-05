@@ -1,0 +1,20 @@
+<div class="container">
+  <h3>Calculadora de juros</h3>
+  <form>
+    <label for="valor-inicial">Valor inicial</label><br>
+    <input type="number" name="valor-inicial" id="valor-inicial" [(ngModel)]="valorPresente" required><br>
+    <label for="periodo">Período</label><br>
+    <input type="number" name="periodo" id="periodo" [(ngModel)]="periodo" required><br>
+    <label for="taxa">Taxa</label><br>
+    <input type="number" name="taxa" id="taxa" [(ngModel)]="taxa" required><br>
+    <select id="opcao" name="opcao" [(ngModel)]="tipoJuro">
+      <option value="simples" selected>Simples</option>
+      <option value="composto">Composto</option>
+    </select><br>
+    <button type="submit" class="btn btn-primary" (click)="calcularValorFuturo()">Calcular</button>
+
+    @if(valorFuturo>0){
+    <p>valor Futuro R${{valorFuturo.toFixed(2)}}</p>
+    }
+  </form>
+</div>

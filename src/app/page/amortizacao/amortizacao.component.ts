@@ -13,7 +13,7 @@ export class AmortizacaoComponent {
   valor!: number;
   parcela!: number;
   taxa!: number;
-  opcao: string = '';
+  opcao: 'sac' | 'price' = 'sac';
   totalJuros!: number;
 
   calcularParcelas() {
@@ -29,6 +29,10 @@ export class AmortizacaoComponent {
     } else {
       const parcelas = this.calcularParcelasEmprestimoPrice(emprestimo);
       this.pagamentos = parcelas;
+    }
+
+    if (this.pagamentos.length <= 0) {
+      alert('Preencha os campos primeiro');
     }
   }
 
