@@ -1,0 +1,45 @@
+<div class="container">
+  <form>
+    <p>Informe o valor do empréstimo</p>
+    <input type="number" name="valor" id="valor" [(ngModel)]="valor">
+    <p>Informe o número de parcelas</p>
+    <input type="number" name="parcela" id="parcela" [(ngModel)]="parcela">
+    <p>Informe a taxa de juros em %</p>
+    <input type="number" name="taxa" id="taxa" [(ngModel)]="taxa">
+    <p>Qual o sistema de amortização?</p>
+
+    <select id="opcao" name="opcao" [(ngModel)]="opcao">
+      <option value="sac" selected>SAC</option>
+      <option value="price">PRICE</option>
+    </select>
+
+    <button type="submit" (click)="calcularParcelas()" class="btn btn-primary">Calcula</button>
+  </form>
+</div>
+
+@if(pagamentos.length>0){
+<div class="container">
+  <p>Total de juros R${{totalJuros.toFixed(2)}}</p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Parcela</th>
+        <th scope="col">Juros</th>
+        <th scope="col">Amortização</th>
+        <th scope="col">Saldo</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (pagamento of pagamentos; track $index) {
+      <tr>
+        <th scope="row">{{pagamento.numero}}</th>
+        <td>R${{pagamento.parcela.toFixed(2)}}</td>
+        <td>R${{pagamento.juros.toFixed(2)}}</td>
+        <td>R${{pagamento.amortizacao.toFixed(2)}}</td>
+        <td>R${{pagamento.saldo.toFixed(2)}}</td>
+      </tr>}
+    </tbody>
+  </table>
+</div>
+}
